@@ -14,7 +14,9 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+import API from '@/api'
+import categorySelect from '@/components/categorySelect'
+import HintButton from '@/components/HintButton/index.vue'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -30,11 +32,13 @@ if (process.env.NODE_ENV === 'production') {
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
+Vue.component(categorySelect.name,categorySelect)
+Vue.component(HintButton.name,HintButton)
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-
+Vue.prototype.$API = API
 new Vue({
   el: '#app',
   router,
